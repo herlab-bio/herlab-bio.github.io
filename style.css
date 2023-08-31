@@ -1,0 +1,538 @@
+/* ---------------- DEFAULT STYLE ------------ */
+:root {
+    --background-color: #ffdd15;
+    --heading-color: #652d90;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    color: #333;
+    background-color: white;
+    font: normal 20px 'Open Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    color: #111;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #333;
+}
+
+img, video {
+    max-width: auto;
+    max-height: 50vh;
+    object-fit: contain;
+}
+
+article,
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 80px;
+    scroll-margin-top: 50px;
+}
+
+section h2 {
+    font-size: 40px;
+    color: var(--heading-color);
+    text-align: left;
+    margin-top: 2px;
+    margin-bottom: 7px;
+}
+
+section h3 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width:650px) {
+    section {
+        padding: 0 20px;
+    }
+}
+
+.grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 5vh 0;
+}
+
+@media screen and (max-width:1040px) {
+    .content {
+        padding: 0 20px;
+    }
+}
+
+.light {
+    font-weight: 100;
+}
+
+.normal {
+    font-weight: 400;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+
+/* --------------- HEADER and NAVIGATION ----------- */
+
+header {
+    background: var(--heading-color);
+    position: sticky;
+    top: 0;
+    display: flex;
+    /* make logo stay on the left and nav on the right */
+    justify-content: center;
+    height: 50px;
+    padding: 0 10px;
+    /* make sure header is above all other content */
+    z-index: 1;
+}
+
+.header-content {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo img {
+    /* keep aspect ratio */
+    width: 50px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul span,
+nav ul a {
+    /* fill the entire nav height so that the entire height is clickable */
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #eee;
+    border-top: var(--heading-color) 1px solid;
+    cursor: pointer;
+}
+
+nav ul ul {
+    /* do not allow this submenu interfere with the main menu */
+    position: absolute;
+    /* display submenu items as a normal list, not inline */
+    display: block;
+    background: var(--heading-color);
+    visibility: hidden;
+    padding-bottom: 10px;
+}
+
+nav ul ul a {
+    height: 30px;
+    font-size: 14px;
+    /* indent a bit the second level of list */
+    margin-left: 20px;
+    border-left: var(--heading-color) 1px solid;
+}
+
+nav ul span:hover,
+nav ul a:hover {
+    border-top: #eee 1px solid;
+}
+
+nav ul ul a:hover {
+    border-top: var(--heading-color) 1px solid;
+    border-left: #eee 1px solid;
+}
+
+nav ul li:hover>ul {
+    visibility: visible;
+}
+
+
+/* deal with menu button */
+.menu-icon,
+.close-icon {
+    display: none;
+    height: 50px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: #eee;
+    background-color: var(--heading-color);
+}
+
+/* make it hamburger */
+.menu-icon:before {
+    content: "";
+    font-size: 24px;
+    width: 24px;
+    height: 4px;
+    border-top: 12px double #eee;
+    border-bottom: 4px solid #eee;
+}
+
+/* make it "x" */
+.close-icon:after {
+    content: "\00d7";
+    font-size: 50px;
+    line-height: 50px;
+}
+
+@media screen and (max-width: 520px) {
+    .menu-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    /* hide menu by default */
+    #menu {
+        display: none;
+    }
+
+    /* when user clicks on the hamburger, show the menu, and hide again when a link on the menu is clicked */
+    #menu:target {
+        display: flex;
+    }
+
+    /* open menu -> hide hamburger
+       close menu -> hide x */
+    #menu:target~.menu-icon,
+    #menu~.close-icon {
+        display: none;
+    }
+
+    /* close menu -> show hamburger
+       open menu -> show x */
+    #menu~.menu-icon,
+    #menu:target~.close-icon {
+        display: flex;
+    }
+
+    nav>ul {
+        background: var(--heading-color);
+        display: block;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        padding: 0px 50px;
+    }
+
+    nav ul ul {
+        position: relative;
+        visibility: visible;
+    }
+
+    nav ul span,
+    nav ul a {
+        border-top-width: 0;
+        border-left: var(--heading-color) 1px solid;
+    }
+
+    nav ul span:hover,
+    nav ul a:hover {
+        border-top-width: 0;
+        border-left: #eee 1px solid;
+    }
+
+    nav ul ul a:hover {
+        border-top-width: 0;
+    }
+
+    .lang {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    /* hide current choice */
+    .lang span {
+        display: none;
+    }
+
+    /* choices shown in rows now */
+    .lang ul {
+        display: flex;
+    }
+
+    .lang a {
+        border-left-width: 0;
+        border-bottom: var(--heading-color) 1px solid;
+    }
+
+    .lang a:hover,
+    .lang a.selected {
+        border-left-width: 0;
+        border-bottom: #eee 1px solid;
+    }
+
+
+}
+
+
+/* --------------------- INTRO ----------------- */
+
+section.intro {
+    color: #652d90;
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+section.intro .content {
+    color: var(--heading-color);
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    animation: slidefade 1s;
+}
+
+@keyframes slidefade {
+    from {
+        opacity: 0;
+        margin: 10px;
+    }
+
+    to {
+        opacity: 1;
+        margin: 0;
+    }
+}
+
+section.intro h1 {
+    font-size: 80px;
+    color: var(--heading-color);
+}
+
+section.intro h2 {
+    letter-spacing: normal;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--heading-color);
+}
+
+section.intro img {
+    max-width: 600px;
+    padding: 10px 0;
+}
+
+@media screen and (max-width:650px) {
+    section.intro h1 {
+        font-size: 13vw;
+    }
+
+    section.intro h2 {
+        font-size: 3vw;
+    }
+
+    section.intro img {
+        max-width: 100%;
+    }
+}
+
+.colony {
+    position: absolute;
+}
+
+.yeast {
+    position: absolute;
+    width: 3px;
+    height: 2px;
+    border: 1px solid  var(--heading-color);
+    background-color: var(--heading-color);
+    border-radius: 50%;
+    transition: width 5s, height 5s, opacity 5s;
+}
+
+
+/* --------------------- TEAM ----------------- */
+section.team {
+    background-color: #fefac6;
+}
+
+section.team h2 {
+    margin-bottom: 5vh;
+}
+
+section.team .content {
+    margin-bottom: 5vh;
+}
+
+section.team li {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: 0 10px 70px 10px;
+    max-width: 300px;
+    text-align: center;
+}
+
+section.team figure {
+    font-size: 14px;
+}
+
+section.team img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #bbb;
+}
+
+section.team figcaption img {
+    border-radius: 0;
+    margin-top: 10px;
+}
+
+section.team figcaption {
+    height: 150px;
+}
+
+section.team .name {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+section.team .position {
+    font-weight: 700;
+    font-size: 17px;
+}
+
+@media screen and (max-width:800px) {
+    section.team .grid li {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+section.advisors img.square {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 0%;
+    box-shadow: none;
+}
+
+section.advisors h2 {
+    margin-bottom: 5vh;
+}
+
+@media screen and (max-width:800px) {
+    section.advisorss .content {
+        max-width: 400px;
+    }
+}
+
+
+/* --------------------- CONTACT ----------------- */
+
+section.contact {
+    color: var(--heading-color);
+    background-color: var(--background-color);
+}
+
+section.contact h2 {
+    font-size: 48px;
+    text-transform: none;
+    letter-spacing: normal;
+    margin-bottom: 10vh;
+    color: var(--heading-color);
+}
+
+section.contact a {
+    color: var(--heading-color);
+}
+
+section.contact .email {
+    font-size: 36px;
+    padding: 50px 0;
+    text-align: left;
+}
+
+@media screen and (max-width:600px) {
+    section.contact .email {
+        font-size: 8vw;
+    }
+}
+
+section.contact .grid {
+    align-items: center;
+}
+
+section.contact .info {
+    padding-top: 100px;
+    font-size: 16px;
+}
+
+section.contact .info li {
+    flex-basis: 33%;
+}
+
+section.contact .icons li {
+    display: block;
+    float: left;
+    margin: 0 10px;
+    padding: 0;
+}
+
+section.contact .icons img {
+    max-width: 24px;
+}
+
+section.contact .icons img.invert {
+    filter: invert(100%);
+}
+
+@media screen and (max-width:800px) {
+    section.contact .grid li {
+        flex-basis: 100%;
+    }
+
+    section.contact ul {
+        margin-top: 10px;
+    }
+
+
+}
