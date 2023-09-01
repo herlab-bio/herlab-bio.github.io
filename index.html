@@ -28,6 +28,7 @@
           <li><a href="#intro">Home</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#advisors">Advisors</a></li>
+          <li><a href="#backers">Backers</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -41,8 +42,7 @@
   <section id="intro" class="intro">
     <div class="content">
       <h1><span class="bold">HER</span><span class="light">lab</span></h1>
-      <h2>High Efficiency Research Laboratory
-        for  precision fermentation & future foods</h2>
+      <h2>HERlab is a synthetic biology and AI startup. Our team combines cutting edge technologies and interdisciplinary expertise to create a platform that discovers and optimises next-generation microorganisms for scalable precision fermentation.</h2>
     </div>
   </section>
 
@@ -137,6 +137,27 @@
 
         <li>
           <figure class="person">
+            <img src="media/vlad.jpg" alt="Vlad Oncescu">
+            <figcaption>
+              <p class="name">Vlad Oncescu, PhD</p>
+              <p>Senior Manager, Sustainability & Innovation Strategy at Accenture. Go-to-Market Strategy (pipeline to corporations).
+              </p>
+            </figcaption>
+          </figure>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <section id="backers" class="team backers">
+    <div class="content">
+      <h2>Supported and backed by</h2>
+
+      <ul class="grid">
+
+        <li>
+          <figure class="person">
             <img src="media/gfi.png" alt="GFI">
             <figcaption>
               <p>"Based on the strength of the founder and the potential broad impact of HERlab, we selected Deimena to be our inaugural Entrepreneur-in-Residence."
@@ -159,7 +180,16 @@
           <figure class="person">
             <img class="square" src="media/uok.png" alt="University of Kent">
             <figcaption>
-              <p>Direct support with facilities, talents, and partners for the UK Grant applications. </p>
+              <p>Direct support with facilities, talents, and partners for the UK Grant applications.</p>
+            </figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure class="person">
+            <img class="square" src="media/ukri-innovate-uk-square-logo.png" alt="Innovate UK">
+            <figcaption>
+              <p>Grant for the Transformative Technologies project.</p>
             </figcaption>
           </figure>
         </li>
@@ -172,6 +202,9 @@
   <section id="contact" class="contact">
     <div class="content">
       <h2>Contact</h2>
+
+      <p class="email"><a href="mailto:deimena@herlab.bio">
+        <span class="light">deimena@</span><span class="bold">HER</span><span class="light">lab.bio</span></a></p>
 
       <div class="info">
         <p class="bold">HERlab Ltd</p>
@@ -265,14 +298,14 @@
 
     yeast.style.rotate = `${Math.random() * 180}deg`;
     yeast.offsetWidth;  // force reflow
-    yeast.style.width = '12px';
-    yeast.style.height = '10px';
+    yeast.style.width = '16px';
+    yeast.style.height = '13px';
   };
 
   function split(colony) {
     Object.values(colony.childNodes).forEach((yeast) => {
       const style = window.getComputedStyle(yeast);
-      if (style.width === '12px' && style.height === '10px') {
+      if (style.width === '16px' && style.height === '13px') {
         createYeast(
           colony,
           x = parseFloat(yeast.style.left),

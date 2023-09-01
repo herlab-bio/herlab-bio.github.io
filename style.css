@@ -448,11 +448,9 @@ section.team .position {
     }
 }
 
-section.advisors img.square {
-    max-width: 150px;
-    max-height: 150px;
-    border-radius: 0%;
-    box-shadow: none;
+section.advisors .content {
+    margin-bottom: 0;
+    max-width: 700px;
 }
 
 section.advisors h2 {
@@ -460,9 +458,21 @@ section.advisors h2 {
 }
 
 @media screen and (max-width:800px) {
-    section.advisorss .content {
+    section.advisors .content {
         max-width: 400px;
     }
+}
+
+section.backers .content {
+    margin-top: 0;
+    max-width: 700px;
+}
+
+section.backers img.square {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 0%;
+    box-shadow: none;
 }
 
 
