@@ -407,7 +407,7 @@ section.team li {
     flex-direction: column;
     justify-items: center;
     margin: 0 10px 70px 10px;
-    max-width: 300px;
+    max-width: 320px;
     text-align: center;
 }
 
@@ -420,6 +420,10 @@ section.team img {
     max-height: 150px;
     border-radius: 50%;
     box-shadow: 0 0 5px #bbb;
+}
+
+section.team img.invert {
+    filter: grayscale(100%);
 }
 
 section.team figcaption img {
