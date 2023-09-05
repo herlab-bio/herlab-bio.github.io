@@ -453,8 +453,8 @@ section.team .position {
 }
 
 section.advisors .content {
-    margin-bottom: 0;
-    max-width: 700px;
+    margin-bottom: 5vh;
+    max-width: 1000px;
 }
 
 section.advisors h2 {
@@ -467,9 +467,17 @@ section.advisors h2 {
     }
 }
 
+section.advisors li {
+    max-width: 300px;
+}
+
 section.backers .content {
     margin-top: 0;
     max-width: 700px;
+}
+
+section.team li {
+    margin-bottom: 10px;
 }
 
 section.backers img.square {
