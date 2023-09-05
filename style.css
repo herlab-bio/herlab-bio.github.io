@@ -432,7 +432,7 @@ section.team figcaption img {
 }
 
 section.team figcaption {
-    height: 150px;
+    min-height: 150px;
 }
 
 section.team .name {
